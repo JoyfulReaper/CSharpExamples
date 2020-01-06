@@ -1,10 +1,10 @@
-using System;
+using System;					// Importing namespace
 
-class Test
+class Test						// Class declaration
 {
-	static void Main()
+	static void Main()			// Method declaration
 	{
-		int x = 12 * 30;
-		Console.WriteLine(x);
-	}
+		int x = 12 * 30;		// Statement 1
+		Console.WriteLine(x);	// Statement 2
+	} 							// End of class
 }
