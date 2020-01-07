@@ -20,5 +20,7 @@ class Test
 
         Console.WriteLine(p1.name);
         Console.WriteLine(p2.name);
+
+        Console.WriteLine ("There are " + Panda.Population + " pandas!");
 	}
 }
