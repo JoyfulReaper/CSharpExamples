@@ -48,3 +48,5 @@ Deconstructors.cs - Deconstructor examples - pg 84
 NonPublicConstructor.cs - Singleton example / Private constructor - pg 84
 
 Indexer.cs - Example of implementing an indexer - pg 90 (My own example though)
+
+Inheritance.cs - Examples of Inheritance, Polymorphism, Virtual (overrideable) Functions. Pg 96 - 100
