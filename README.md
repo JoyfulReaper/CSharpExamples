@@ -8,6 +8,7 @@ C# 7.0 in a Nutshell (O'Reilly by Joseoh and Ben Albahri 2017)
 
 # Overview:
 Language Basics:
+----------------
 
 MyFirstProgram.cs - C# introduction from page 15 
 
@@ -34,3 +35,16 @@ ParamsModifier.cs - params modifier for accepting any number of arguments of the
 NullOperators.cs - Example of Null Coalescing and Null-Conditional operators - pg 60
 
 IfElse_DoWhile.cs - If/Else and Do While loop examples - pg 64
+
+Creating Types
+--------------
+
+FieldsAndMethods.cs - Object field and method examples, method overloading example
+
+Constructors.cs - Constructor examples - pg 82
+
+Deconstructors.cs - Deconstructor examples - pg 84
+
+NonPublicConstructor.cs - Singleton example / Private constructor - pg 84
+
+Indexer.cs - Example of implementing an indexer - pg 90 (My own example though)
