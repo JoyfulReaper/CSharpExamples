@@ -23,6 +23,15 @@ class Test
         sc?.someMethod(); // Do nothing / NOOP
         sc = new SomeClass();
         sc.someMethod();
+
+        // Combing the two
+        sb = null;
+        string s = sb?.ToString() ?? "sb is null!";
+        Console.WriteLine(s);
+
+        sb = new StringBuilder("sb is not null!");
+        s = sb?.ToString() ?? "sb is null!";
+        Console.WriteLine(s);
     }
 
     class SomeClass
