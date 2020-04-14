@@ -6,7 +6,7 @@ You will find code from the book C# 7.0 in a Nutshell (O'Reilly by Joseoh and Be
 All examples with page numbers are from or based on code samples from:
 C# 7.0 in a Nutshell (O'Reilly by Joseoh and Ben Albahri 2017)
 
-No guarantee this read me will be updated or useful :)
+No guarantee this README or any other part of this project will be updated or useful to anyone except myself :)
 
 # Overview:
 Language Basics:
