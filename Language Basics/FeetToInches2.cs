@@ -9,7 +9,7 @@ class Test
 {
 	static void Main()	
 	{
-        int input = 1;
+        double input = 1;
         bool valid = true;
 
         while (true)
@@ -18,10 +18,10 @@ class Test
             Console.Write("Enter number of feet to convert to inches: (<= 0 to quit): ");
 
             try {
-                input = Int32.Parse(Console.ReadLine());
+                input = Double.Parse(Console.ReadLine());
                 valid = true;
-            } catch (FormatException) {
-                Console.WriteLine("Must be a whole number :("); // Lets just be lazy and stick to ints
+            } catch (FormatException e) {
+                Console.WriteLine("Exception: " + e.Message); // Lets just dump the error message to the screen
                 valid = false;
             }
 
@@ -32,9 +32,9 @@ class Test
         }
 	}
 
-	static int FeetToInches(int feet)	
+	static double FeetToInches(double feet)	
 	{
-		int inches = feet * 12;
+		double inches = feet * 12;
 		return inches;
 	}
 }
