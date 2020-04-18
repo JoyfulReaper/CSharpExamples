@@ -21,5 +21,14 @@ class RectArray
             for(int j = 0; j < matrix.GetLength(1); j++)
                 Console.WriteLine("matrix[{0},{1}]: {2}", i, j, matrix[i,j]);
 
+        for(int i = 0; i < matrix2.GetLongLength(0); i++)
+        {
+            Console.Write("\n");
+            
+            for(int j = 0; j < matrix2.GetLongLength(1); j++)
+            {
+                Console.Write(matrix2[i,j]);
+            }
+        }
     }
 }
