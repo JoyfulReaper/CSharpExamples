@@ -11,7 +11,7 @@ class Test
         Console.WriteLine(s2);
 
         s1 = "s1 is not null!";
-        s2 = s1 ?? "s1 ia null!";
+        s2 = s1 ?? "s1 is null!";
         Console.WriteLine(s2);
 
         // Null Conditional Operator
