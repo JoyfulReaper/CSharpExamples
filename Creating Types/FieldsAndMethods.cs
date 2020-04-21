@@ -5,19 +5,19 @@ class Octopus // A class is a reference type
     string name; // Name field
     public int age = 10; // Optional field initialization
     static readonly int legs = 8, eyes = 2; // declare two static readonly fields at the same time. Readonly fields can not be changed after they are initialized
-    public int hungerPercent {get; private set;} = 0; // Simple property
+    public int HungerPercent {get; private set;} = 0; // Simple property
 
     // Instance methods
     public bool isHungry()
     {
-        return hungerPercent > 60;
+        return HungerPercent > 60;
     }
     // Method consisting of a single expression can be expressed as an expression-bodied method
-    public void Eat(int amount) => hungerPercent -= amount; 
+    public void Eat(int amount) => HungerPercent -= amount; 
     // Overloaded method (two methods with the same name)
-    public void Eat(string amount) => hungerPercent -= Int32.Parse(amount);
+    public void Eat(string amount) => HungerPercent -= Int32.Parse(amount);
 
-    public void Digest(int amount) => hungerPercent += amount;
+    public void Digest(int amount) => HungerPercent += amount;
 
     public static void Main()
     {
@@ -28,15 +28,15 @@ class Octopus // A class is a reference type
 
         Console.WriteLine("Digesting 75 food!");
         o.Digest(75);
-        Console.WriteLine("The octopus is {0}% hungry\n", o.hungerPercent);
+        Console.WriteLine("The octopus is {0}% hungry\n", o.HungerPercent);
 
         Console.WriteLine("Feeding the octopus with an int...");
         o.Eat(10);
-        Console.WriteLine("The octopus is {0}% hungry\n", o.hungerPercent);
+        Console.WriteLine("The octopus is {0}% hungry\n", o.HungerPercent);
 
         Console.WriteLine("Feeding the octopus with a string...");
         o.Eat("10");
-        Console.WriteLine("The octopus is {0}% hungry\n", o.hungerPercent);
+        Console.WriteLine("The octopus is {0}% hungry\n", o.HungerPercent);
 
         Console.WriteLine("The octopus is named: {0}", o.name);
         Console.WriteLine("The octopus is age: {0}", o.age);
