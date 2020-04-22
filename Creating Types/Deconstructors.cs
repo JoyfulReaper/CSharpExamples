@@ -31,8 +31,12 @@ class Dog
     public static void Main()
     {
         Dog Buddy = new Dog("Buddy", 4, Gender.Male);
+        Dog Shelly = new Dog("Shelly", 5, Gender.Female);
 
         (string name, int age, Gender gender) = Buddy; // Syntax to call Deconstructor
-        Console.WriteLine("Deconstucted Buddy: {0} {1} {2}", name, age, gender);
+        Console.WriteLine("Deconstructed Buddy: {0} {1} {2}", name, age, gender);
+
+        var (sName, sAge, sGender) = Shelly;
+        Console.WriteLine("Deconstructed Shelly: {0} {1} {2}", sName, sAge, sGender);
     }
 }
