@@ -7,19 +7,12 @@ namespace Delegates
     {
         public static void Main()
         {
-            ConsoleColor preBK = Console.BackgroundColor;
-            ConsoleColor preFG = Console.ForegroundColor;
-
-            bool loop = true;
             Transformer t = null;
-            while (loop)
+            while (true)
             {
-                System.Console.Write("Enter an Int32: ");
-                int input = Int32.Parse(Console.ReadLine());
                 System.Console.WriteLine("1. Square\n2. Halve\n3. Double\n4. Quit");
                 System.Console.Write("Option: ");
                 int function = Int32.Parse(Console.ReadLine());
-
                 switch (function)
                 {
                     case 1:
@@ -32,19 +25,16 @@ namespace Delegates
                         t = Double;
                         break;
                     default:
-                        loop = false;
+                        System.Environment.Exit(0);
                         break;
                 }
-                if(loop)
-                {
-                    int res = t(input);
-                    System.Console.WriteLine($"\nResult: {res}\n");
-                }
-            }
 
-            Console.ForegroundColor = preFG;
-            Console.BackgroundColor = preBK;
-            System.Environment.Exit(0);
+                System.Console.Write("Enter an Int32: ");
+                int input = Int32.Parse(Console.ReadLine());
+                int res = t(input);
+                System.Console.WriteLine($"\nResult: {res}\n");
+                
+            }
         }
 
         static int Square(int x) => x * x;
