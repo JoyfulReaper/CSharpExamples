@@ -27,5 +27,14 @@ class Program
         Console.WriteLine();
         TimeSpan ts1 = new TimeSpan(days,hours,minutes,seconds);
         Console.WriteLine(ts1);
+        Console.WriteLine("Adding 121 seconds and 1001 ms");
+        ts1 += TimeSpan.FromSeconds(121) + TimeSpan.FromMilliseconds(1001);
+
+        Console.WriteLine(ts1);
+        Console.WriteLine("\nTotal Days {0}", ts1.TotalDays);
+        Console.WriteLine("Total Hours {0}", ts1.TotalHours);
+        Console.WriteLine("Total Minutes {0}", ts1.TotalMinutes);
+        Console.WriteLine("Total Seconds {0}", ts1.TotalSeconds);
+        Console.WriteLine("Total Miliseconds {0}", ts1.TotalMilliseconds);
     }
 }
