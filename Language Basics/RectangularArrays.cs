@@ -6,8 +6,8 @@ class RectArray
     {
         int [,] matrix = new int[3,3];
 
-        for(int i = 0; i < matrix.GetLength(0); i++)
-            for(int j = 0; j < matrix.GetLength(1); j++)
+        for(int i = 0; i < matrix.GetLength(0); i++) // Row
+            for(int j = 0; j < matrix.GetLength(1); j++) // Column
                 matrix[i,j] = i * 3 + j;
 
         int[,] matrix2 = new int[,]
