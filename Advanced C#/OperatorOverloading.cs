@@ -27,10 +27,10 @@ class Program
     public static void Main()
     {
         Note B = new Note (2);
-        Note CShparp = B + 2;
+        Note CSharp = B + 2;
 
         Console.WriteLine(B);
-        Console.WriteLine(CShparp);
+        Console.WriteLine(CSharp);
 
         Console.WriteLine();
         Note n = (Note)554.37;
