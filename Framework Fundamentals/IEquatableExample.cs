@@ -1,3 +1,5 @@
+// Its a good idea to implement IEquable<T> when overriding Equals
+
 using System;
 public struct Area : IEquatable<Area>
 {
