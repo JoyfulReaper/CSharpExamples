@@ -11,15 +11,16 @@ public class Percent
             Console.WriteLine("\nPercent Change");
             Console.WriteLine("1. Enter change and base amount");
             Console.WriteLine("2. Enter new amount and old amount");
-            Console.WriteLine("3. Quit");
+            Console.WriteLine("3. Enter percentage of change");
+            Console.WriteLine("4. Quit");
             var option = RequireValidDecimal("\nOption: ");
 
-            if(option < 1 || option > 3)
+            if(option < 1 || option > 4)
             {
                 continue;
             }
-            
-            if(option == 3)
+
+            if(option == 4)
             {
                 Environment.Exit(0);
             }
@@ -32,7 +33,7 @@ public class Percent
                 Console.WriteLine();
                 var percentChange = PercentChange(change, baseAmount);
                 Console.WriteLine($"{baseAmount + change} is an increase of {percentChange * 100:N2}% from {baseAmount}");
-                Console.WriteLine($"{baseAmount - change} is an decrease of {percentChange * 100:N2}% from {baseAmount}");
+                Console.WriteLine($"{baseAmount - change} is a decrease of {percentChange * 100:N2}% from {baseAmount}");
             }
 
             if (option == 2)
@@ -44,8 +45,19 @@ public class Percent
                 var message = newAmount > baseAmount ? "increase" : "decrease";
 
                 Console.WriteLine();
-                var percentIncrease = PercentChange(change, baseAmount);
-                Console.WriteLine($"{newAmount} is an {message} of {percentIncrease * 100:N2}% from {baseAmount}");
+                var percentChange = PercentChange(change, baseAmount);
+                Console.WriteLine($"{newAmount} is an {message} of {percentChange * 100:N2}% from {baseAmount}");
+            }
+
+            if(option == 3)
+            {
+                baseAmount = RequireValidDecimal("Enter base amount: ");
+                var percentChange = RequireValidDecimal("Enter percent change: ");
+                change = percentChange * baseAmount / 100;
+
+                Console.WriteLine();
+                Console.WriteLine($"{change + baseAmount} is an increase of {percentChange}%");
+                Console.WriteLine($"{baseAmount - change} is a decrease of {percentChange}%");
             }
         }
     }
