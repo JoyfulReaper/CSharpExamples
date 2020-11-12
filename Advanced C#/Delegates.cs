@@ -3,16 +3,19 @@ using System;
 namespace Delegates
 {
     delegate int Transformer (int x);
+
     class Progam
     {
         public static void Main()
         {
             Transformer t = null;
+
             while (true)
             {
                 System.Console.WriteLine("1. Square\n2. Halve\n3. Double\n4. Quit");
                 System.Console.Write("Option: ");
                 int function = Int32.Parse(Console.ReadLine());
+                
                 switch (function)
                 {
                     case 1:
