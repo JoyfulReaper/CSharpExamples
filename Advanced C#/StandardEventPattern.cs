@@ -8,6 +8,7 @@
 //
 
 using System;
+
 namespace EventPattern
 {
     // Step one: Subclass System.EventArgs to convery event's information

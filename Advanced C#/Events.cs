@@ -1,6 +1,7 @@
 namespace EventExample
 {
     public delegate void PriceChangedHandler (decimal oldPrice, decimal newPrice);
+    
     public class Stock
     {
         string symbol;
