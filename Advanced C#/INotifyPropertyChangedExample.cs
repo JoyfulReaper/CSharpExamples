@@ -4,9 +4,9 @@ using System.Runtime.CompilerServices;
 
 public class Foo : INotifyPropertyChanged
 {
-    public event PropertyChangedEventHandler PropertyChanged = delegate {};
+    public event PropertyChangedEventHandler PropertyChanged = delegate { }; // Default empty delagate
 
-    void RaisedPropertyChanged ([CallerMemberName] string propertyName = null)
+    void RaisePropertyChanged ([CallerMemberName] string propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
@@ -19,7 +19,7 @@ public class Foo : INotifyPropertyChanged
         {
             if (value == customerName) return;
             customerName = value;
-            RaisedPropertyChanged();
+            RaisePropertyChanged();
         }
     }
 
