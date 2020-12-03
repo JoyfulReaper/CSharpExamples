@@ -31,9 +31,6 @@ namespace EqualityExamples
             System.Console.WriteLine(object.ReferenceEquals(x, y)); // false
             System.Console.WriteLine(object.ReferenceEquals(z, y)); // true
             System.Console.WriteLine();
-
-
-
         }
     }
 }
