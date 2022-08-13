@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+// Another option is the IClonable interface
 
 namespace CopyObjectsUI
 {
@@ -36,7 +39,8 @@ namespace CopyObjectsUI
 
             // Creates a second PersonModel object
             //PersonModel secondPerson = new PersonModel(firstPerson);
-            PersonModel secondPerson = CopyPerson(firstPerson);
+            //PersonModel secondPerson = CopyPerson(firstPerson);
+            PersonModel secondPerson = JsonCopy(firstPerson);
 
             // Set the value of the secondPerson to be a copy of the firstPerson
 
@@ -62,6 +66,12 @@ namespace CopyObjectsUI
             Console.ReadLine();
         }
 
+        private static PersonModel JsonCopy(PersonModel source)
+        {
+            string tempPerson = JsonConvert.SerializeObject(source);
+            return JsonConvert.DeserializeObject<PersonModel>(tempPerson);
+        }
+        
         private static PersonModel CopyPerson(PersonModel source)
         {
             PersonModel output = new PersonModel();
