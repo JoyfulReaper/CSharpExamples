@@ -7,12 +7,20 @@ internal class Program
         var format = GetDateFormat();
         Console.WriteLine();
 
-        Console.WriteLine("Please enter a date in the past: ");
+        Console.WriteLine("Please enter a date: ");
         var dateString = Console.ReadLine();
         var date = ProcessDate(dateString, format);
 
         var daysAgo = DateTime.Now - date;
-        Console.WriteLine("Days ago: " + daysAgo.TotalDays);
+
+        if(daysAgo.Ticks < 0)
+        {
+            Console.WriteLine("Days from now: " + Math.Round(-daysAgo.TotalDays, 0, MidpointRounding.AwayFromZero));
+        }
+        else
+        {
+            Console.WriteLine("Days ago: " + Math.Round(daysAgo.TotalDays, 0, MidpointRounding.AwayFromZero));
+        }
 
         Console.WriteLine();
         Console.WriteLine("Enter time: ");
