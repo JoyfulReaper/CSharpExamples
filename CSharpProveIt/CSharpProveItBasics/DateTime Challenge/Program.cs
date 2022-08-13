@@ -5,79 +5,56 @@ internal class Program
     static void Main(string[] args)
     {
         var format = GetDateFormat();
-
         Console.WriteLine();
 
-        DateTime date;
-        GetDate:
-        var dateString = GetDate();
-        try
-        {
-             date = ProcessDate(dateString, format);
-        }
-        catch
-        {
-            Console.WriteLine("\nPlease enter a valid date!");
-            goto GetDate;
-        }
+        Console.WriteLine("Please enter a date in the past: ");
+        var dateString = Console.ReadLine();
+        var date = ProcessDate(dateString, format);
+
         var daysAgo = DateTime.Now - date;
         Console.WriteLine("Days ago: " + daysAgo.TotalDays);
 
+        Console.WriteLine();
         Console.WriteLine("Enter time: ");
         var timeString = Console.ReadLine();
-        var time = ProcessTime(timeString);
+        var timeAgo = ProcessTime(timeString);
+
+        if(timeAgo.Ticks < 0)
+        {
+            timeAgo = timeAgo.Add(TimeSpan.FromHours(24));
+        }
         
-        Console.WriteLine("Hours ago: " + time.Hours);
-        Console.WriteLine("Minutes ago: " + time.Minutes);
+        Console.WriteLine("Hours ago: " + timeAgo.Hours);
+        Console.WriteLine("Minutes ago: " + timeAgo.Minutes);
     }
-    
-    private static string GetDate()
-    {
-        Console.WriteLine("Please enter a date in the past: ");
-        var response = Console.ReadLine();
-        return response;
-    }
-    
+
     private static TimeSpan ProcessTime(string timeString)
     {
-        var timeSplit = timeString.Split(":");
-        int hours = int.Parse(timeSplit[0]);
-        int minutes = int.Parse(timeSplit[1]);
-
-        var time = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, hours, minutes, 0);
-        var difference = DateTime.Now - time;
+        DateTime prevTime = DateTime.ParseExact(timeString, "h:mm tt", null);
+        var difference = DateTime.Now - prevTime;
         return difference;
     }
-    
+
     private static DateTime ProcessDate(string dateString, DateType format)
     {
-        var dateSplit = dateString.Split('/');
-        int day;
-        int month;
-        int year;
-        
-        if (format == DateType.DayFirst)
+        DateTime outDate = DateTime.Now;
+        if (format == DateType.MonthFirst)
         {
-            day = int.Parse(dateSplit[0]);
-            month = int.Parse(dateSplit[1]);
-            year = int.Parse(dateSplit[2]);
+            outDate = DateTime.ParseExact(dateString, "M/d/yy", null);
         }
         else
         {
-            day = int.Parse(dateSplit[1]);
-            month = int.Parse(dateSplit[0]);
-            year = int.Parse(dateSplit[2]);
+            outDate = DateTime.ParseExact(dateString, "d/M/yy", null);
         }
 
-        var outDate = new DateTime(year, month, day);
         return outDate;
     }
 
     private static DateType GetDateFormat()
     {
         Console.WriteLine("What dateformat do you prefer?");
-        Console.WriteLine("1) mm/dd/yyyy");
-        Console.WriteLine("2) dd/mm/yyy");
+        Console.WriteLine("1) mm/dd/yy");
+        Console.WriteLine("2) dd/mm/yy");
 
         DateType output = DateType.DayFirst;
         var response = Console.ReadLine();
